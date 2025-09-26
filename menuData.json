@@ -1,0 +1,1124 @@
+[
+  {
+    "key": "ALOES",
+    "name": {
+      "pl": "Aloes",
+      "en": "Aloe drink",
+      "de": "Aloe-Getränk",
+      "ua": "Напій алое",
+      "ru": "Напиток алоэ",
+      "vn": "Nước nha đam",
+      "zh": "芦荟饮料"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 10.0
+  },
+  {
+    "key": "bialy_ryz",
+    "name": {
+      "pl": "Biały ryż",
+      "en": "White rice",
+      "de": "Weißer Reis",
+      "ua": "Білий рис",
+      "ru": "Белый рис",
+      "vn": "Cơm trắng",
+      "zh": "白米"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 15.0
+  },
+  {
+    "key": "chipsy_krewetkowe",
+    "name": {
+      "pl": "Chipsy krewetkowe",
+      "en": "Shrimp chips",
+      "de": "Garnelenchips",
+      "ua": "Креветкові чіпси",
+      "ru": "Креветочные чипсы",
+      "vn": "Bánh phồng tôm",
+      "zh": "虾片"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 15.0
+  },
+  {
+    "key": "cola_0_5l",
+    "name": {
+      "pl": "Cola 0.5 l",
+      "en": "Cola 0.5 l",
+      "de": "Cola 0,5 l",
+      "ua": "Кола 0,5 л",
+      "ru": "Кола 0,5 л",
+      "vn": "Coca 0.5 l",
+      "zh": "可乐 0.5升"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 10.0
+  },
+  {
+    "key": "fanta_0_5l",
+    "name": {
+      "pl": "Fanta 0.5 l",
+      "en": "Fanta 0.5 l",
+      "de": "Fanta 0,5 l",
+      "ua": "Фанта 0,5 л",
+      "ru": "Фанта 0,5 л",
+      "vn": "Fanta 0.5 l",
+      "zh": "芬达 0.5升"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 10.0
+  },
+  {
+    "key": "filet_pieczony",
+    "name": {
+      "pl": "Filet pieczony",
+      "en": "Roasted fillet",
+      "de": "Gebratener Filet",
+      "ua": "Запечене філе",
+      "ru": "Жареный филе",
+      "vn": "Thịt phi lê nướng",
+      "zh": "烤鸡柳"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "filet_pieczony_z_warzywami",
+    "name": {
+      "pl": "Filet pieczony z warzywami",
+      "en": "Roasted fillet with vegetables",
+      "de": "Gebratener Filet mit Gemüse",
+      "ua": "Запечене філе з овочами",
+      "ru": "Жареный филе с овощами",
+      "vn": "Thịt phi lê nướng với rau củ",
+      "zh": "烤鸡柳配蔬菜"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "frytki",
+    "name": {
+      "pl": "Frytki",
+      "en": "French fries",
+      "de": "Pommes frites",
+      "ua": "Картопля фрі",
+      "ru": "Картофель фри",
+      "vn": "Khoai tây chiên",
+      "zh": "薯条"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 15.0
+  },
+  {
+    "key": "golonka_5_smakow",
+    "name": {
+      "pl": "Golonka 5 smaków",
+      "en": "Knuckle 5 flavors",
+      "de": "Haxe 5 Geschmäcker",
+      "ua": "Голяшка 5 смаків",
+      "ru": "Голяшка 5 вкусов",
+      "vn": "Giò heo 5 vị",
+      "zh": "五味猪蹄"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "golonka_po_chinsku",
+    "name": {
+      "pl": "Golonka po chińsku",
+      "en": "Chinese knuckle",
+      "de": "Haxe auf chinesische Art",
+      "ua": "Голяшка по-китайськи",
+      "ru": "Голяшка по-китайски",
+      "vn": "Giò heo kiểu Trung Quốc",
+      "zh": "中式猪蹄"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "golonka_w_sosie_curry",
+    "name": {
+      "pl": "Golonka w sosie curry",
+      "en": "Knuckle curry",
+      "de": "Haxe Curry",
+      "ua": "Голяшка каррі",
+      "ru": "Голяшка карри",
+      "vn": "Giò heo cà ri",
+      "zh": "咖喱猪蹄"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "golonka_z_goracego_polmiska",
+    "name": {
+      "pl": "Golonka z gorącego półmiska",
+      "en": "Knuckle from hot plate",
+      "de": "Haxe vom heißen Teller",
+      "ua": "Голяшка з гарячої тарілки",
+      "ru": "Голяшка с горячей тарелки",
+      "vn": "Giò heo từ đĩa nóng",
+      "zh": "热盘猪蹄"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kaczka_5_smakow",
+    "name": {
+      "pl": "Kaczka 5 smaków",
+      "en": "Duck 5 flavors",
+      "de": "Ente 5 Geschmäcker",
+      "ua": "Качки 5 смаків",
+      "ru": "Утка 5 вкусов",
+      "vn": "Vịt 5 vị",
+      "zh": "五味鸭肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kaczka_chrupiaca_z_warzywami",
+    "name": {
+      "pl": "Kaczka chrupiąca z warzywami",
+      "en": "Crispy duck with vegetables",
+      "de": "Knusprige Ente mit Gemüse",
+      "ua": "Хрустка качка з овочами",
+      "ru": "Хрустящая утка с овощами",
+      "vn": "Vịt giòn với rau củ",
+      "zh": "脆鸭配蔬菜"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kaczka_po_chinsku",
+    "name": {
+      "pl": "Kaczka po chińsku",
+      "en": "Chinese duck",
+      "de": "Ente auf chinesische Art",
+      "ua": "Качки по-китайськи",
+      "ru": "Утка по-китайски",
+      "vn": "Vịt kiểu Trung Quốc",
+      "zh": "中式鸭肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kaczka_po_syczuansku",
+    "name": {
+      "pl": "Kaczka po syczuańsku",
+      "en": "Sichuan duck",
+      "de": "Ente nach Sichuan-Art",
+      "ua": "Качки по-сичuanськи",
+      "ru": "Утка по-сычуаньски",
+      "vn": "Vịt Tứ Xuyên",
+      "zh": "四川鸭肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kaczka_slodko_kw sna",
+    "name": {
+      "pl": "Kaczka słodko-kwaśna",
+      "en": "Sweet and sour duck",
+      "de": "Süß-saure Ente",
+      "ua": "Качки кисло-солодка",
+      "ru": "Утка кисло-сладкая",
+      "vn": "Vịt chua ngọt",
+      "zh": "酸甜鸭肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kaczka_w_sosie_curry",
+    "name": {
+      "pl": "Kaczka w sosie curry",
+      "en": "Duck curry",
+      "de": "Ente Curry",
+      "ua": "Качки каррі",
+      "ru": "Утка карри",
+      "vn": "Vịt cà ri",
+      "zh": "咖喱鸭肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kaczka_z_goracego_polmiska",
+    "name": {
+      "pl": "Kaczka z gorącego półmiska",
+      "en": "Duck from hot plate",
+      "de": "Ente vom heißen Teller",
+      "ua": "Качки з гарячої тарілки",
+      "ru": "Утка с горячей тарелки",
+      "vn": "Vịt từ đĩa nóng",
+      "zh": "热盘鸭"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kalmary_5_smakow",
+    "name": {
+      "pl": "Kalmary 5 smaków",
+      "en": "Squid 5 flavors",
+      "de": "Kalmar 5 Geschmäcker",
+      "ua": "Кальмари 5 смаків",
+      "ru": "Кальмары 5 вкусов",
+      "vn": "Mực 5 vị",
+      "zh": "五味鱿鱼"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kalmary_w_sosie_curry",
+    "name": {
+      "pl": "Kalmary w sosie curry",
+      "en": "Squid in curry sauce",
+      "de": "Kalmar in Currysoße",
+      "ua": "Кальмари в соусі каррі",
+      "ru": "Кальмары в соусе карри",
+      "vn": "Mực sốt cà ri",
+      "zh": "咖喱鱿鱼酱"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "kalmary_z_goracego_polmiska",
+    "name": {
+      "pl": "Kalmary z gorącego półmiska",
+      "en": "Squid from hot plate",
+      "de": "Kalmar vom heißen Teller",
+      "ua": "Кальмари з гарячої тарілки",
+      "ru": "Кальмары с горячей тарелки",
+      "vn": "Mực từ đĩa nóng",
+      "zh": "热盘鱿鱼"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "krewetki_5_smakow",
+    "name": {
+      "pl": "Krewetki 5 smaków",
+      "en": "Shrimp 5 flavors",
+      "de": "Garnelen 5 Geschmäcker",
+      "ua": "Креветки 5 смаків",
+      "ru": "Креветки 5 вкусов",
+      "vn": "Tôm 5 vị",
+      "zh": "五味虾"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "krewetki_po_chinsku",
+    "name": {
+      "pl": "Krewetki po chińsku",
+      "en": "Chinese shrimp",
+      "de": "Garnelen auf chinesische Art",
+      "ua": "Креветки по-китайськи",
+      "ru": "Креветки по-китайски",
+      "vn": "Tôm kiểu Trung Quốc",
+      "zh": "中式虾"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "krewetki_w_sosie_curry",
+    "name": {
+      "pl": "Krewetki w sosie curry",
+      "en": "Shrimp in curry sauce",
+      "de": "Garnelen in Currysoße",
+      "ua": "Креветки в соусі каррі",
+      "ru": "Креветки в соусе карри",
+      "vn": "Tôm sốt cà ri",
+      "zh": "咖喱虾酱"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "krewetki_z_goracego_polmiska",
+    "name": {
+      "pl": "Krewetki z gorącego półmiska",
+      "en": "Shrimp from hot plate",
+      "de": "Garnelen vom heißen Teller",
+      "ua": "Креветки з гарячої тарілки",
+      "ru": "Креветки с горячей тарелки",
+      "vn": "Tôm từ đĩa nóng",
+      "zh": "热盘虾"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "tofu_5_smakow",
+    "name": {
+      "pl": "Tofu 5 smaków",
+      "en": "Tofu 5 flavors",
+      "de": "Tofu 5 Geschmäcker",
+      "ua": "Тофу 5 смаків",
+      "ru": "Тофу 5 вкусов",
+      "vn": "Đậu phụ 5 vị",
+      "zh": "五味豆腐"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "tofu_curry",
+    "name": {
+      "pl": "Tofu curry",
+      "en": "Tofu curry",
+      "de": "Tofu Curry",
+      "ua": "Тофу каррі",
+      "ru": "Тофу карри",
+      "vn": "Đậu phụ cà ri",
+      "zh": "咖喱豆腐"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "tofu_z_warzywami",
+    "name": {
+      "pl": "Tofu z warzywami",
+      "en": "Tofu with vegetables",
+      "de": "Tofu mit Gemüse",
+      "ua": "Тофу з овочами",
+      "ru": "Тофу с овощами",
+      "vn": "Đậu phụ với rau củ",
+      "zh": "蔬菜豆腐"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "warzywa_smazone",
+    "name": {
+      "pl": "Warzywa smażone",
+      "en": "Fried vegetables",
+      "de": "Gebratenes Gemüse",
+      "ua": "Смажені овочі",
+      "ru": "Жареные овощи",
+      "vn": "Rau xào",
+      "zh": "炒蔬菜"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wieprzowina_5_smakow",
+    "name": {
+      "pl": "Wieprzowina 5 smaków",
+      "en": "Pork 5 flavors",
+      "de": "Schweinefleisch 5 Geschmacker",
+      "ua": "Свинина 5 смаків",
+      "ru": "Свинина 5 вкусов",
+      "vn": "Heo 5 vị",
+      "zh": "五味猪肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wieprzowina_po_chinsku",
+    "name": {
+      "pl": "Wieprzowina po chińsku",
+      "en": "Chinese pork",
+      "de": "Schweinefleisch auf chinesische Art",
+      "ua": "Свинина по-китайськи",
+      "ru": "Свинина по-китайски",
+      "vn": "Heo kiểu Trung Quốc",
+      "zh": "中式猪肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wieprzowina_w_sosie_curry",
+    "name": {
+      "pl": "Wieprzowina w sosie curry",
+      "en": "Pork in curry sauce",
+      "de": "Schweinefleisch in Currysoße",
+      "ua": "Свинина в соусі каррі",
+      "ru": "Свинина в соусе карри",
+      "vn": "Heo sốt cà ri",
+      "zh": "咖喱猪肉酱"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wieprzowina_z_goracego_polmiska",
+    "name": {
+      "pl": "Wieprzowina z gorącego półmiska",
+      "en": "Pork from hot plate",
+      "de": "Schweinefleisch vom heißen Teller",
+      "ua": "Свинина з гарячої тарілки",
+      "ru": "Свинина с горячей тарелки",
+      "vn": "Heo từ đĩa nóng",
+      "zh": "热盘猪肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "woda_0_3l",
+    "name": {
+      "pl": "Woda 0.3 l",
+      "en": "Water 0.3 l",
+      "de": "Wasser 0,3 l",
+      "ua": "Вода 0,3 л",
+      "ru": "Вода 0,3 л",
+      "vn": "Nước 0.3 l",
+      "zh": "水 0.3升"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 5.0
+  },
+  {
+    "key": "woda_gazowana_0_3l",
+    "name": {
+      "pl": "Woda gazowana 0.3 l",
+      "en": "Sparkling water 0.3 l",
+      "de": "Sprudelwasser 0,3 l",
+      "ua": "Газована вода 0,3 л",
+      "ru": "Газировання вода 0,3 л",
+      "vn": "Nước có ga 0.3 l",
+      "zh": "气泡水 0.3升"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 5.0
+  },
+  {
+    "key": "wolowina_5_smakow",
+    "name": {
+      "pl": "Wołowina 5 smaków",
+      "en": "Beef 5 flavors",
+      "de": "Rindfleisch 5 Geschmacker",
+      "ua": "Яловичина 5 смаків",
+      "ru": "Говядина 5 вкусов",
+      "vn": "Bò 5 vị",
+      "zh": "五味牛肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wolowina_po_chinsku",
+    "name": {
+      "pl": "Wołowina po chińsku",
+      "en": "Chinese beef",
+      "de": "Rindfleisch auf chinesische Art",
+      "ua": "Яловичина по-китайськи",
+      "ru": "Говядина по-китайски",
+      "vn": "Bò kiểu Trung Quốc",
+      "zh": "中式牛肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wolowina_po_syczuansku",
+    "name": {
+      "pl": "Wołowina po syczuańsku",
+      "en": "Sichuan beef",
+      "de": "Rindfleisch nach Sichuan-Art",
+      "ua": "Яловичина по-сичuanськи",
+      "ru": "Говядина по-сычуаньски",
+      "vn": "Bò Tứ Xuyên",
+      "zh": "四川牛肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wolowina_w_sosie_curry",
+    "name": {
+      "pl": "Wołowina w sosie curry",
+      "en": "Beef curry",
+      "de": "Rindfleisch Curry",
+      "ua": "Яловичина каррі",
+      "ru": "Говядина карри",
+      "vn": "Bò cà ri",
+      "zh": "咖喱牛肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "wolowina_z_goracego_polmiska",
+    "name": {
+      "pl": "Wołowina z gorącego półmiska",
+      "en": "Beef from hot plate",
+      "de": "Rindfleisch vom heißen Teller",
+      "ua": "Яловичина з гарячої тарілки",
+      "ru": "Говядина с горячей тарелки",
+      "vn": "Bò từ đĩa nóng",
+      "zh": "热盘牛肉"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 34.0
+  },
+  {
+    "key": "zupa_krewetkowa_po_chinsku",
+    "name": {
+      "pl": "Zupa krewetkowa po chińsku",
+      "en": "Chinese shrimp soup",
+      "de": "Chinesische Garnelensuppe",
+      "ua": "Китайський креветковий суп",
+      "ru": "Китайский креветочный суп",
+      "vn": "Súp tôm kiểu Trung Quốc",
+      "zh": "中式虾汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_kwasno_pikantna_z_kurczakiem",
+    "name": {
+      "pl": "Zupa kwaśno-pikantna z kurczakiem",
+      "en": "Sour-spicy soup with chicken",
+      "de": "Sauer-scharfe Suppe mit Huhn",
+      "ua": "Кисло-гострий суп з куркою",
+      "ru": "Кисло-острый суп с курицей",
+      "vn": "Súp chua cay gà",
+      "zh": "酸辣鸡汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_po_tajsku_z_krewetkami",
+    "name": {
+      "pl": "Zupa po tajsku z krewetkami",
+      "en": "Thai soup with shrimp",
+      "de": "Thailändische Suppe mit Garnelen",
+      "ua": "Тайський суп з креветками",
+      "ru": "Тайский суп с креветками",
+      "vn": "Súp Thái với tôm",
+      "zh": "泰式虾汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_po_tajsku_z_kurczakiem",
+    "name": {
+      "pl": "Zupa po tajsku z kurczakiem",
+      "en": "Thai soup with chicken",
+      "de": "Thailändische Suppe mit Huhn",
+      "ua": "Тайський суп з куркою",
+      "ru": "Тайский суп с курицей",
+      "vn": "Súp Thái với gà",
+      "zh": "泰式鸡汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_pho_z_kurczakiem",
+    "name": {
+      "pl": "Zupa Pho z kurczakiem",
+      "en": "Pho soup with chicken",
+      "de": "Pho-Suppe mit Huhn",
+      "ua": "Суп Фо з куркою",
+      "ru": "Суп Фо с курицей",
+      "vn": "Súp Phở gà",
+      "zh": "鸡肉河粉汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_pho_z_wolowina",
+    "name": {
+      "pl": "Zupa Pho z wołowiną",
+      "en": "Pho soup with beef",
+      "de": "Pho-Suppe mit Rindfleisch",
+      "ua": "Суп Фо з яловичиною",
+      "ru": "Суп Фо с говядиной",
+      "vn": "Súp Phở bò",
+      "zh": "牛肉河粉汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_tom_kha_gai_z_krewetkami",
+    "name": {
+      "pl": "Zupa Tom Kha Gai z krewetkami",
+      "en": "Tom Kha Gai soup with shrimp",
+      "de": "Tom Kha Gai-Suppe mit Garnelen",
+      "ua": "Суп Том Кха Гай з креветками",
+      "ru": "Суп Том Кха Гай с креветками",
+      "vn": "Súp Tom Kha Gai với tôm",
+      "zh": "虾仁冬卡盖汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_tom_kha_gai_z_kurczakiem",
+    "name": {
+      "pl": "Zupa Tom Kha Gai z kurczakiem",
+      "en": "Tom Kha Gai soup with chicken",
+      "de": "Tom Kha Gai-Suppe mit Huhn",
+      "ua": "Суп Том Кха Гай з куркою",
+      "ru": "Суп Том Кха Гай с курицей",
+      "vn": "Súp Tom Kha Gai với gà",
+      "zh": "鸡肉冬卡盖汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "zupa_wonton",
+    "name": {
+      "pl": "Zupa Wonton",
+      "en": "Wonton soup",
+      "de": "Wonton-Suppe",
+      "ua": "Суп Вонтон",
+      "ru": "Суп Вонтон",
+      "vn": "Súp hoành thánh",
+      "zh": "云吞汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  },
+  {
+    "key": "rosol_z_makaronem_sojowym_i_kurczakiem",
+    "name": {
+      "pl": "Rosół z makaronem sojowym i kurczakiem",
+      "en": "Chicken broth with soy noodles",
+      "de": "Hühnerbrühe mit Sojanudeln",
+      "ua": "Курячий бульйон з соєвою локшиною",
+      "ru": "Куриный бульон с соевой лапшой",
+      "vn": "Nước dùng gà với mì đậu nành",
+      "zh": "鸡肉豆面汤"
+    },
+    "description": {
+      "pl": "a delicious dish from the menu.",
+      "en": "a delicious dish from the menu.",
+      "de": "a delicious dish from the menu.",
+      "ua": "a delicious dish from the menu.",
+      "ru": "a delicious dish from the menu.",
+      "vn": "a delicious dish from the menu.",
+      "zh": "a delicious dish from the menu."
+    },
+    "price": 30.0
+  }
+]
