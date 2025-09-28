@@ -1,0 +1,77 @@
+import os
+import requests
+from bs4 import BeautifulSoup
+import zipfile
+
+# URL меню Pyszne
+URL = "https://www.pyszne.pl/menu/ha-linh-warszawa-wolska?serviceType=delivery&utm_source=google&utm_medium=organic&utm_campaign=foodorder"
+
+# Ключи (имена файлов)
+KEYS = [
+    "ALOES.png","BIALY_RYZ.png","CHIPSY_KREWETKOWE.png","COLA_0_5L.png","FANTA_0_5L.png",
+    "FILET_PIECZONY.png","FILET_PIECZONY_Z_WARZYWAMI.png","FRYTKI.png","GOLONKA_5_SMAKOW.png",
+    "GOLONKA_PO_CHINSKU.png","GOLONKA_W_SOSIE_CURRY.png","GOLONKA_Z_GORACEGO_POLMISKA.png",
+    "KACZKA_5_SMAKOW.png","KACZKA_CHRUPIACA_Z_WARZYWAMI.png","KACZKA_PO_CHINSKU.png",
+    "KACZKA_PO_SYCZUANSKU.png","KACZKA_SLODKO_KWASNA.png","KACZKA_W_SOSIE_CURRY.png",
+    "KACZKA_Z_GORACEGO_POLMISKA.png","KALMARY_5_SMAKOW.png","KALMARY_W_SOSIE_CURRY.png",
+    "KALMARY_Z_GORACEGO_POLMISKA.png","KREWETKI_5_SMAKOW.png","KREWETKI_PO_CHINSKU.png",
+    "KREWETKI_W_SOSIE_CURRY.png","KREWETKI_Z_GORACEGO_POLMISKA.png","KURCZAK_5_SMAKOW.png",
+    "KURCZAK_CHRUPIACY.png","KURCZAK_HA_LINH.png","KURCZAK_PO_CHINSKU.png",
+    "KURCZAK_PO_SYCZUANSKU.png","KURCZAK_SMAZONY_Z_WARZYWAMI.png","KURCZAK_W_CIESCIE_KOKOSOWYM.png",
+    "KURCZAK_W_SEZAMIE_SMAZONY.png","KURCZAK_W_SOSIE_CURRY.png","KURCZAK_Z_GORACEGO_POLMISKA.png",
+    "KURCZAK_SPECJALNY.png","MAKARON.png","MAKARON_CHINSKI_SMAZONY.png","MAKARON_SOJOWY.png",
+    "MAKARON_SOJOWY_SMAZONY.png","MAKARON_SOJOWY_Z_WARZYWAMI.png","MAKARON_SMAZONY_Z_WARZYWAMI.png",
+    "MAKARON_UDON_Z_KREWETKAMI.png","MAKARON_UDON_Z_KURCZAKIEM.png","MAKARON_UDON_Z_KURCZAKIEM_PIECZONYM.png",
+    "MAKARON_UDON_Z_TOFU.png","MAKARON_UDON_Z_WOLOWINA.png","MIX_WARZYW_SMAZONY.png",
+    "PAD_THAI_Z_KREWETKAMI.png","PAD_THAI_Z_KURCZAKIEM.png","PAD_THAI_Z_TOFU.png","PAD_THAI_Z_WOLOWINA.png",
+    "PIWO.png","RYBA_CHRUPIACA.png","RYZ_SMAZONY_Z_KACZKA.png","RYZ_SMAZONY_Z_KREWETKAMI.png",
+    "RYZ_SMAZONY_Z_KURCZAKIEM.png","RYZ_SMAZONY_Z_TOFU.png","RYZ_SMAZONY_Z_WARZYWAMI.png",
+    "RYZ_SMAZONY_Z_WIEPRZOWINA.png","RYZ_SMAZONY_Z_WOLOWINA.png","SMAZONY_RYZ.png","SOK_POMARANCZOWY.png",
+    "SPRITE_0_5L.png","SUROWKA.png","SAJGONKI_WIEPRZOWE_3_SZT.png","SAJGONKI_WEGETARIANSKIE.png",
+    "SAJGONKI_Z_SUROWKA_I_RYZEM.png","TOFU_5_SMAKOW.png","TOFU_CURRY.png","TOFU_Z_WARZYWAMI.png",
+    "WARZYWA_SMAZONE.png","WIEPRZOWINA_5_SMAKOW.png","WIEPRZOWINA_PO_CHINSKU.png",
+    "WIEPRZOWINA_W_SOSIE_CURRY.png","WIEPRZOWINA_Z_GORACEGO_POLMISKA.png","WODA_0_3L.png",
+    "WODA_GAZOWANA_0_3L.png","WOLOWINA_5_SMAKOW.png","WOLOWINA_PO_CHINSKU.png","WOLOWINA_PO_SYCZUANSKU.png",
+    "WOLOWINA_W_SOSIE_CURRY.png","WOLOWINA_Z_GORACEGO_POLMISKA.png","ZUPA_KREWETKOWA_PO_CHINSKU.png",
+    "ZUPA_KWASNO_PIKANTNA_Z_KURCZAKIEM.png","ZUPA_PO_TAJSKU_Z_KREWETKAMI.png","ZUPA_PO_TAJSKU_Z_KURCZAKIEM.png",
+    "ZUPA_PHO_Z_KURCZAKIEM.png","ZUPA_PHO_Z_WOLOWINA.png","ZUPA_TOM_KHA_GAI_Z_KREWETKAMI.png",
+    "ZUPA_TOM_KHA_GAI_Z_KURCZAKIEM.png","ZUPA_WONTON.png","ROSOL_Z_MAKARONEM_SOJOWYM_I_KURCZAKIEM.png"
+]
+
+# Папка для скачивания
+os.makedirs("pyszne_images", exist_ok=True)
+
+# Загружаем HTML
+html = requests.get(URL).text
+soup = BeautifulSoup(html, "html.parser")
+
+# Вытаскиваем все <img>
+imgs = [img["src"] for img in soup.find_all("img") if "pyszne" in img.get("src", "") or "cloudfront" in img.get("src", "")]
+
+print(f"Найдено {len(imgs)} картинок")
+
+# Скачиваем и переименовываем
+for i, key in enumerate(KEYS):
+    if i < len(imgs):
+        url = imgs[i]
+        path = os.path.join("pyszne_images", key)
+        try:
+            r = requests.get(url, stream=True, timeout=10)
+            if r.status_code == 200:
+                with open(path, "wb") as f:
+                    for chunk in r.iter_content(1024):
+                        f.write(chunk)
+                print(f"✔ {key}")
+            else:
+                print(f"⚠ Ошибка {r.status_code} для {key}")
+        except Exception as e:
+            print(f"❌ {key}: {e}")
+    else:
+        print(f"⚠ Пропущено: {key} — не хватает картинок")
+
+# Архивируем
+with zipfile.ZipFile("pyszne_images.zip", "w") as zipf:
+    for f in os.listdir("pyszne_images"):
+        zipf.write(os.path.join("pyszne_images", f), f)
+
+print("\n✅ Готово! Архив: pyszne_images.zip")
