@@ -127,6 +127,16 @@
       color:#001027;font-weight:800;cursor:pointer;min-height:40px;flex:1
     }
 
+    /* Meta info line under name */
+    .meta{
+      font-size:.86rem;
+      color:var(--muted);
+      min-height:1.2em;
+    }
+    .list.as-list .meta{
+      grid-column:2 / 4;
+    }
+
     /* List view */
     .list.as-list{grid-template-columns:1fr}
     .list.as-list .card{grid-template-columns:92px 1fr auto;grid-template-rows:auto auto;gap:10px}
@@ -158,6 +168,47 @@
     }
     .sheet.open{ transform:translateY(0) }
     .sheet h3{margin:0 0 8px}
+
+    /* handle for swipe */
+    .sheet-handle{
+      width:42px;
+      height:5px;
+      border-radius:4px;
+      background:var(--glass-btn-2);
+      margin:0 auto 10px;
+      opacity:0.9;
+      pointer-events:none;
+    }
+
+    /* close X button */
+    .sheet-close{
+      position:absolute;
+      top:10px;
+      right:10px;
+      width:36px;
+      height:36px;
+      border:none;
+      border-radius:10px;
+      background:var(--glass-strong);
+      border:1px solid var(--line);
+      color:#fff;
+      font-size:20px;
+      font-weight:700;
+      cursor:pointer;
+      display:grid;
+      place-items:center;
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+    }
+    .sheet-close:hover{
+      background:var(--glass-btn-2);
+      border-color:var(--ring);
+    }
+    .sheet-close:active{
+      transform:scale(.95);
+      box-shadow: inset 0 2px 8px #00000060, 0 6px 16px #00000055;
+    }
+
     .cart-lines{display:grid;gap:10px;max-height:38dvh;overflow:auto;padding-right:4px}
     .line{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:8px;border-radius:12px;border:1px dashed var(--line)}
     .section{margin-top:10px}
@@ -232,7 +283,6 @@
     .dock-btn{ display:grid;place-items:center; width:48px;height:48px;border-radius:14px; color:#fff; cursor:pointer; font-weight:800; }
     .dock-cart{ min-width:120px; padding:0 12px; font-weight:800; }
 
-
     /* Dock overrides + lang selector */
     .dock{ flex-wrap: wrap; }
     .dock-btn{ min-width:48px; padding:0 12px; }
@@ -249,9 +299,6 @@
       padding:10px 16px; font-weight:800; font-size:1.05rem; letter-spacing:.3px;
       border-radius:14px;
     }
-
-
-
   </style>
 </head>
 <body>
@@ -262,10 +309,10 @@
         <h1 class="brand" id="brandTap">CYBER <img class="mark" src="logo.png" alt="Logo"> DRAGON</h1>
 
         <div class="lang"><select id="langSel" aria-label="Language">
-          <option value="ru">RU</option><option value="en">EN</option>
-          <option value="ua">UA</option><option value="vn">VN</option>
-          <option value="pl">PL</option><option value="de">DE</option>
-          <option value="zh">ZH</option></select>
+          <option value="ru">🇺🇦RU🇺🇦</option><option value="en">EN 🇬🇧</option>
+          <option value="ua">UA 🇺🇦</option><option value="vn">VN 🇻🇳</option>
+          <option value="pl">PL 🇵🇱</option><option value="de">DE 🇩🇪</option>
+          <option value="zh">ZH 🇨🇳</option></select>
         </div>
 
         <button class="burger" id="burgerBtn" aria-haspopup="true" aria-expanded="false" aria-controls="navPop">☰</button>
@@ -278,10 +325,10 @@
           <hr>
           <div class="lang-inline" role="none">🌐
             <select id="langSelMenu" aria-label="Language (menu)">
-              <option value="ru">RU</option><option value="en">EN</option>
-              <option value="ua">UA</option><option value="vn">VN</option>
-              <option value="pl">PL</option><option value="de">DE</option>
-              <option value="zh">ZH</option>
+              <option value="ru">🇺🇦RU🇺🇦</option><option value="en">EN 🇬🇧</option>
+              <option value="ua">UA 🇺🇦</option><option value="vn">VN 🇻🇳</option>
+              <option value="pl">PL 🇵🇱</option><option value="de">DE 🇩🇪</option>
+              <option value="zh">ZH 🇨🇳</option>
             </select>
           </div>
         </nav>
@@ -310,14 +357,11 @@
           <img src="images/icon/tt.png" alt="TikTok">
         </a>
       </div>
-
-
     </div>
 
     <!-- Category pills -->
     <nav class="cat-nav glass-nav">
       <div class="h-scroll" id="catPills" aria-label="Categories"></div>
-      <!-- Верхний переключатель вида удалён по ТЗ -->
     </nav>
 
     <main id="content"></main>
@@ -325,6 +369,8 @@
     <!-- All categories sheet (for Dock) -->
     <div class="overlay" id="catOverlay"></div>
     <div class="sheet" id="catSheet" role="dialog" aria-modal="true" aria-labelledby="catSheetTitle">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <button class="sheet-close" id="catSheetClose" aria-label="Закрыть">✕</button>
       <h3 id="catSheetTitle">Категории</h3>
       <div class="group" id="catSheetList"></div>
     </div>
@@ -334,46 +380,42 @@
       <!-- MENU → открывает «Все категории» -->
       <button class="dock-btn" id="dockCat" aria-label="Все категории" title="Категории">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <rect x="4" y="6"  width="16" height="2" rx="1"></rect>
+          <rect x="4" y="6" width="16" height="2" rx="1"></rect>
           <rect x="4" y="11" width="16" height="2" rx="1"></rect>
           <rect x="4" y="16" width="16" height="2" rx="1"></rect>
         </svg>
       </button>
 
-      <!-- Main menu (гамбургер) -->
-      <button class="dock-btn" id="dockMain" aria-label="Main menu" title="Main menu">☰</button>
-
       <!-- Языковый переключатель -->
       <div class="dock-lang">
         <select id="langSelDock" aria-label="Language">
-          <option value="ru">RU</option><option value="en">EN</option>
-          <option value="ua">UA</option><option value="vn">VN</option>
-          <option value="pl">PL</option><option value="de">DE</option>
-          <option value="zh">ZH</option>
+          <option value="ru">🇺🇦RU🇺🇦</option><option value="en">EN 🇬🇧</option>
+          <option value="ua">UA 🇺🇦</option><option value="vn">VN 🇻🇳</option>
+          <option value="pl">PL 🇵🇱</option><option value="de">DE 🇩🇪</option>
+          <option value="zh">ZH 🇨🇳</option>
         </select>
       </div>
 
-      <button class="dock-btn dock-cart" id="dockCart" aria-label="Корзина">🛒</button>
+      <!-- Кнопка корзины -->
+      <button class="cart-fab" id="cartFab" aria-haspopup="dialog">
+        🛒 <span id="fabText">0 szt. • 0.00 zł</span>
+      </button>
+
       <button class="dock-btn" id="dockView" aria-label="Переключить вид" title="Переключить вид">
         <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-          <rect x="4"  y="4"  width="7" height="7" rx="1" stroke-width="1.6" fill="none" stroke="currentColor"></rect>
+          <rect x="4" y="4" width="7" height="7" rx="1" stroke-width="1.6" fill="none" stroke="currentColor"></rect>
           <rect x="13" y="4" width="7" height="7" rx="1" stroke-width="1.6" fill="none" stroke="currentColor"></rect>
-          <rect x="4"  y="13" width="7" height="7" rx="1" stroke-width="1.6" fill="none" stroke="currentColor"></rect>
+          <rect x="4" y="13" width="7" height="7" rx="1" stroke-width="1.6" fill="none" stroke="currentColor"></rect>
           <rect x="13" y="13" width="7" height="7" rx="1" stroke-width="1.6" fill="none" stroke="currentColor"></rect>
         </svg>
       </button>
     </nav>
 
-
-    <!-- FAB Cart -->
-    <div class="fab">
-      <button class="cart-fab" id="cartFab" aria-haspopup="dialog">🛒 <span id="fabText">0 шт. • 0.00 zł</span></button>
-    </div>
-  </div>
-
   <!-- Cart Bottom Sheet -->
   <div class="overlay" id="overlay"></div>
   <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <button class="sheet-close" id="sheetClose" aria-label="Закрыть">✕</button>
     <h3 id="sheetTitle">Ваш заказ</h3>
     <div class="cart-lines" id="cartLines"><div class="muted">Корзина пуста.</div></div>
 
@@ -564,6 +606,38 @@
     $$('.list').forEach(wrap => wrap.classList.toggle('as-list', viewMode==='list'));
   }
 
+  /* Meta info builder for each dish */
+  function buildMeta(it){
+    if(!it) return '';
+    const parts = [];
+
+    if(it.weight){
+      parts.push(it.weight + ' g');
+    }
+    if(it.kcal){
+      parts.push(it.kcal + ' kcal');
+    }
+    if(it.spicy){
+      const level = Math.max(1, Math.min(3, Number(it.spicy)));
+      parts.push('🌶'.repeat(level));
+    }
+    if(Array.isArray(it.tags) && it.tags.length){
+      const mapped = it.tags.map(t=>{
+        switch(t){
+          case 'vegan':     return '🌱 vegan';
+          case 'veg':       return '🥦 veg';
+          case 'no_gluten': return '🚫 gluten';
+          case 'chef':      return '⭐ chef';
+          case 'popular':   return '🔥 top';
+          default:          return t;
+        }
+      });
+      parts.push(mapped.join(' · '));
+    }
+    if(!parts.length) return '';
+    return `<div class="meta">${parts.join(' • ')}</div>`;
+  }
+
   /* Render menu */
   function renderMenu(){
     const content = $('#content'); 
@@ -587,6 +661,7 @@
         const more = t.ui.more;
         const key = (it && (it.key || it.id || it.code)) || '';
         const shortDesc = (it && (it.short || it.desc || '')) || '';
+        const metaHtml = buildMeta(it);
         return `
           <div class="card" data-id="${id}"${key ? ` data-key="${key}"` : ''}>
             <div class="thumb-wrap">
@@ -594,6 +669,7 @@
               <button class="info" data-toggle="${id}" title="${more}" aria-label="${more}" aria-expanded="false" aria-controls="desc-${id}">i</button>
             </div>
             <div class="name">${name}</div>
+            ${metaHtml}
             <p class="desc" id="desc-${id}" aria-hidden="true">${shortDesc}</p>
             <div class="foot">
               <div class="price">${price}</div>
@@ -902,7 +978,6 @@ ${lines.join('\n') || '—'}`;
 
   /* ===== Bottom Dock ===== */
   const dockCat  = document.getElementById('dockCat');
-  const dockCart = document.getElementById('dockCart');
   const dockView = document.getElementById('dockView');
   const catOverlay   = document.getElementById('catOverlay');
   const catSheet     = document.getElementById('catSheet');
@@ -922,17 +997,15 @@ ${lines.join('\n') || '—'}`;
     document.querySelector(target)?.scrollIntoView({behavior:'smooth', block:'start'});
   });
   dockCat?.addEventListener('click', openCatSheet);
-  dockCart?.addEventListener('click', ()=> document.getElementById('cartFab')?.click());
   dockView?.addEventListener('click', ()=>{
     viewMode = (viewMode==='grid') ? 'list' : 'grid';
     localStorage.setItem(VIEW_KEY, viewMode);
     applyView();
   });
 
-  // ▼ ВОТ ЭТИ ДВЕ СТРОКИ ДОБАВЬ ▼
+  // hero MENU opens category sheet
   const heroAllCats = document.getElementById('heroAllCats');
   heroAllCats?.addEventListener('click', openCatSheet);
-  // ▲▲▲
 
   const brandEl = document.getElementById('brandTap');
   brandEl?.addEventListener('click', (e)=> {
@@ -940,6 +1013,104 @@ ${lines.join('\n') || '—'}`;
     e.preventDefault();
     window.scrollTo({top:0, behavior:'smooth'});
   });
+
+  // close buttons for sheets
+  const sheetClose = document.getElementById('sheetClose');
+  const catSheetClose = document.getElementById('catSheetClose');
+  sheetClose?.addEventListener('click', closeSheet);
+  catSheetClose?.addEventListener('click', closeCatSheet);
+
+  // ESC closes open sheets
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'Escape'){
+      if(document.getElementById('sheet')?.classList.contains('open')) closeSheet();
+      if(document.getElementById('catSheet')?.classList.contains('open')) closeCatSheet();
+    }
+  });
+
+  // ===== Swipe-down to close sheets (iOS-style) =====
+  (function(){
+    const cartSheet   = document.getElementById('sheet');
+    const cartOverlay = document.getElementById('overlay');
+    const catSheetEl  = document.getElementById('catSheet');
+    const catOverlayEl= document.getElementById('catOverlay');
+
+    const DRAG_START_ZONE = 40;   // пикселей от верхнего края шторки
+    const DISMISS_Y       = 120;  // насколько потянуть вниз, чтобы закрыть
+    const MAX_DRAG        = 280;  // ограничение визуального сдвига
+
+    function attachSwipe(sheetEl, overlayEl, closeFn){
+      if(!sheetEl) return;
+
+      let startY = 0;
+      let currentY = 0;
+      let dragging = false;
+
+      function onStart(e){
+        const touch = e.touches && e.touches[0];
+        if(!touch) return;
+
+        const rect = sheetEl.getBoundingClientRect();
+        const offsetY = touch.clientY - rect.top;
+
+        if(offsetY > DRAG_START_ZONE) return;
+
+        dragging = true;
+        startY = touch.clientY;
+        currentY = 0;
+        sheetEl.style.transition = 'transform .0s';
+        if(overlayEl) overlayEl.style.transition = 'opacity .0s';
+      }
+
+      function onMove(e){
+        if(!dragging) return;
+        const touch = e.touches && e.touches[0];
+        if(!touch) return;
+
+        const dy = touch.clientY - startY;
+        if(dy <= 0) {
+          currentY = 0;
+          sheetEl.style.transform = 'translateY(0)';
+          if(overlayEl) overlayEl.style.opacity = '1';
+          return;
+        }
+
+        currentY = Math.min(dy, MAX_DRAG);
+        const progress = currentY / MAX_DRAG;
+        sheetEl.style.transform = `translateY(${currentY}px)`;
+        if(overlayEl) overlayEl.style.opacity = String(1 - progress * 0.7);
+      }
+
+      function onEnd(){
+        if(!dragging) return;
+        dragging = false;
+
+        sheetEl.style.transition = 'transform .22s ease';
+        if(overlayEl) overlayEl.style.transition = 'opacity .22s ease';
+
+        if(currentY > DISMISS_Y){
+          sheetEl.style.transform = `translateY(${MAX_DRAG}px)`;
+          if(overlayEl) overlayEl.style.opacity = '0';
+          setTimeout(()=>{
+            sheetEl.style.transform = '';
+            if(overlayEl) overlayEl.style.opacity = '';
+            closeFn();
+          }, 200);
+        } else {
+          sheetEl.style.transform = 'translateY(0)';
+          if(overlayEl) overlayEl.style.opacity = '1';
+        }
+      }
+
+      sheetEl.addEventListener('touchstart', onStart, {passive:true});
+      sheetEl.addEventListener('touchmove',  onMove,  {passive:true});
+      sheetEl.addEventListener('touchend',   onEnd);
+      sheetEl.addEventListener('touchcancel',onEnd);
+    }
+
+    attachSwipe(cartSheet, cartOverlay, closeSheet);
+    attachSwipe(catSheetEl,  catOverlayEl,  closeCatSheet);
+  })();
 
   /* Init */
   (function init(){
@@ -950,7 +1121,6 @@ ${lines.join('\n') || '—'}`;
     updateActive();
     applyView();
     if (selDock) selDock.value = LANG;
-
   })();
   </script>
 </body>

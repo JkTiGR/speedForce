@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0f1a" />
+  <title>CYBER DRAGON — Admin</title>
+  <link rel="icon" href="logo.png"/>
+  <link rel="stylesheet" href="base.css">
+  <style>
+    .admin-header {
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:10px;
+    }
+    .admin-header h2 {
+      margin:0;
+      font-size:1.2rem;
+      font-weight:800;
+    }
+    .admin-controls {
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:8px 0 12px;
+    }
+    .admin-controls select,
+    .admin-controls button {
+      min-height:40px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:var(--glass-strong);
+      color:#fff;
+      padding:6px 10px;
+      font-size:0.95rem;
+    }
+
+    .orders-list {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top:8px;
+    }
+    .order-card {
+      border-radius:16px;
+      padding:10px 12px;
+      background:var(--glass);
+      border:1px solid var(--line);
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+    }
+    .order-top {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:6px;
+    }
+    .order-id {
+      font-weight:700;
+      font-size:0.9rem;
+      color:var(--muted);
+    }
+    .order-code {
+      font-size:1.3rem;
+      font-weight:900;
+    }
+    .order-meta {
+      font-size:0.88rem;
+      color:var(--muted);
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px 12px;
+    }
+    .order-items {
+      font-size:0.9rem;
+      border-radius:12px;
+      padding:8px;
+      background:rgba(0,0,0,.25);
+      border:1px dashed var(--line);
+    }
+    .order-items ul {
+      margin:0;
+      padding-left:18px;
+    }
+    .order-total {
+      font-weight:800;
+    }
+    .order-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      margin-top:4px;
+    }
+    .status-pill {
+      display:inline-flex;
+      align-items:center;
+      padding:4px 8px;
+      border-radius:999px;
+      font-size:0.78rem;
+      font-weight:700;
+    }
+    .st-NEW { background:#2b3a70; color:#e5f0ff; }
+    .st-IN_PROGRESS { background:#7a5cff; color:#fff; }
+    .st-READY { background:#18b26b; color:#001c12; }
+    .st-DONE { background:#2f3b45; color:#dbe5ec; }
+    .st-CANCELED { background:#5b1d2a; color:#ffd7de; }
+
+    .btn-small {
+      font-size:0.82rem;
+      padding:6px 9px;
+      min-height:34px;
+      border-radius:999px;
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+  <!-- Header -->
+  <header class="header">
+    <div class="bar">
+      <h1 class="brand">CYBER <img class="mark" src="logo.png" alt="Logo"> DRAGON</h1>
+      <div style="margin-left:auto;font-size:0.8rem;opacity:.7;">Admin</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="admin-header">
+      <h2>Все заказы</h2>
+    </div>
+
+    <div class="admin-controls">
+      <select id="statusFilter">
+        <option value="ALL">Все статусы</option>
+        <option value="NEW">Новые</option>
+        <option value="IN_PROGRESS">В работе</option>
+        <option value="READY">Готовы</option>
+        <option value="DONE">Выданы</option>
+        <option value="CANCELED">Отменены</option>
+      </select>
+
+      <select id="typeFilter">
+        <option value="ALL">Все типы</option>
+        <option value="on_site">На месте</option>
+        <option value="takeaway">На вынос</option>
+        <option value="delivery">Доставка</option>
+      </select>
+
+      <button id="refreshBtn">Обновить</button>
+    </div>
+
+    <div class="muted" id="lastUpdate" style="font-size:0.8rem;"></div>
+    <div class="orders-list" id="ordersList">
+      <div class="muted">Загрузка заказов…</div>
+    </div>
+  </main>
+</div>
+
+<script>
+  const API_BASE = 'https://script.google.com/macros/s/AKfycbwq1zMVIS18h_zwuLvuJpfNm3J1TatH5tQu9cVVkaZx4zXyTMa0i7lvcACaEdXEjAG6/exec';
+
+  let ORDERS = [];
+
+  function fmtTotal(v) {
+    return Number(v || 0).toFixed(2) + ' zł';
+  }
+
+  function statusLabel(st) {
+    switch (st) {
+      case 'NEW': return 'Новый';
+      case 'IN_PROGRESS': return 'В работе';
+      case 'READY': return 'Готов';
+      case 'DONE': return 'Выдан';
+      case 'CANCELED': return 'Отменён';
+      default: return st;
+    }
+  }
+
+  function statusClass(st) {
+    return 'status-pill st-' + (st || 'NEW');
+  }
+
+  async function apiCall(action, payload = {}) {
+    const res = await fetch(API_BASE, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({action, ...payload})
+    });
+    return res.json();
+  }
+
+  async function loadOrders() {
+    const listEl = document.getElementById('ordersList');
+    listEl.innerHTML = '<div class="muted">Загрузка…</div>';
+    try {
+      const data = await apiCall('list', {});
+      if (!data.ok) throw new Error(data.error || 'list failed');
+      ORDERS = (data.orders || []).slice().sort((a,b)=> {
+        return String(b.created_at||'').localeCompare(String(a.created_at||''));
+      });
+      renderOrders();
+      document.getElementById('lastUpdate').textContent =
+        'Обновлено: ' + new Date().toLocaleTimeString();
+    } catch (e) {
+      console.error(e);
+      listEl.innerHTML = '<div class="muted">Ошибка загрузки заказов</div>';
+    }
+  }
+
+  function renderOrders() {
+    const listEl = document.getElementById('ordersList');
+    const statusFilter = document.getElementById('statusFilter').value;
+    const typeFilter = document.getElementById('typeFilter').value;
+
+    const filtered = ORDERS.filter(o=>{
+      if (statusFilter !== 'ALL' && o.status !== statusFilter) return false;
+      if (typeFilter !== 'ALL' && o.type !== typeFilter) return false;
+      return true;
+    });
+
+    if (!filtered.length) {
+      listEl.innerHTML = '<div class="muted">Нет заказов по указанному фильтру.</div>';
+      return;
+    }
+
+    listEl.innerHTML = '';
+    for (const o of filtered) {
+      const div = document.createElement('div');
+      div.className = 'order-card';
+      const code = o.code || '—';
+      const id = o.id || '';
+      const type = o.type || '';
+      const total = fmtTotal(o.total);
+      const created = o.created_at ? new Date(o.created_at).toLocaleString() : '';
+      const table = o.table || '';
+      const pickup = o.pickup_in || '';
+      const addr = o.address || '';
+      const phone = o.phone || '';
+
+      const typeLabel =
+        type === 'on_site'   ? 'На месте' :
+        type === 'takeaway'  ? 'На вынос' :
+        type === 'delivery'  ? 'Доставка' : '';
+
+      const metaBits = [];
+      if (typeLabel) metaBits.push('Тип: ' + typeLabel);
+      if (table) metaBits.push('Стол: ' + table);
+      if (pickup) metaBits.push('Забрать через: ' + pickup + ' мин');
+      if (addr) metaBits.push('Адрес: ' + addr);
+      if (phone) metaBits.push('Тел: ' + phone);
+      if (created) metaBits.push('Создан: ' + created);
+
+      const items = o.items || [];
+      let itemsHtml = '';
+      if (Array.isArray(items) && items.length) {
+        itemsHtml = '<ul>' + items.map(it => {
+          const name = it.name || it.title || 'Позиция';
+          const qty = it.qty || it.quantity || 1;
+          const price = it.price != null ? ' — ' + Number(it.price).toFixed(2) + ' zł' : '';
+          return `<li>${name} × ${qty}${price}</li>`;
+        }).join('') + '</ul>';
+      } else if (o.items_json) {
+        itemsHtml = '<pre style="margin:0;font-size:0.8rem;white-space:pre-wrap;">'
+          + String(o.items_json).replace(/</g,'&lt;') + '</pre>';
+      } else {
+        itemsHtml = '<span class="muted">Нет данных по блюдам</span>';
+      }
+
+      div.innerHTML = `
+        <div class="order-top">
+          <div>
+            <div class="order-code">Код: <strong>${code}</strong></div>
+            <div class="order-id">${id}</div>
+          </div>
+          <div class="${statusClass(o.status)}">${statusLabel(o.status)}</div>
+        </div>
+        <div class="order-meta">
+          ${metaBits.map(m=>`<span>${m}</span>`).join('')}
+        </div>
+        <div class="order-items">
+          <div class="order-total">Сумма: ${total}</div>
+          ${itemsHtml}
+        </div>
+        <div class="order-actions" data-id="${id}" data-code="${code}">
+          <button class="btn btn-small" data-status="NEW">Новый</button>
+          <button class="btn btn-small" data-status="IN_PROGRESS">В работе</button>
+          <button class="btn btn-small" data-status="READY">Готов</button>
+          <button class="btn btn-small" data-status="DONE">Выдан</button>
+          <button class="btn btn-small" data-status="CANCELED">Отмена</button>
+        </div>
+      `;
+      listEl.appendChild(div);
+    }
+  }
+
+  document.getElementById('statusFilter').addEventListener('change', renderOrders);
+  document.getElementById('typeFilter').addEventListener('change', renderOrders);
+  document.getElementById('refreshBtn').addEventListener('click', loadOrders);
+
+  document.getElementById('ordersList').addEventListener('click', async (e)=>{
+    const btn = e.target.closest('[data-status]');
+    if (!btn) return;
+    const newStatus = btn.getAttribute('data-status');
+    const container = btn.closest('.order-actions');
+    const id = container.getAttribute('data-id');
+    const code = container.getAttribute('data-code');
+
+    btn.disabled = true;
+    try {
+      const res = await apiCall('updateStatus', {id, code, status:newStatus});
+      if (!res.ok) throw new Error(res.error || 'update failed');
+      // обновим локально
+      const o = ORDERS.find(o=>o.id === id || o.code === code);
+      if (o) o.status = newStatus;
+      renderOrders();
+    } catch (err) {
+      alert('Ошибка смены статуса: ' + err.message);
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  loadOrders();
+</script>
+</body>
+</html>
