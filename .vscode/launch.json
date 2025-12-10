@@ -10,7 +10,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "file:///home/jkbook/speedForce/index.html",
+            "url": "file:///home/jkbook/speedForce/menu.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
