@@ -570,11 +570,25 @@
       $('#sheet').classList.add('open');
       renderCartSheet();
     }
+    
+
     function closeSheet(){
       document.body.style.overflow = '';
       document.body.classList.remove('sheet-open');
-      $('#overlay').classList.remove('show');
-      $('#sheet').classList.remove('open');
+
+      const overlay = document.getElementById('overlay');
+      const sheet   = document.getElementById('sheet');
+
+      if (overlay){
+        overlay.classList.remove('show');
+        overlay.style.opacity    = '';
+        overlay.style.transition = '';
+      }
+      if (sheet){
+        sheet.classList.remove('open');
+        sheet.style.transform  = '';   // убрать translateY от свайпа
+        sheet.style.transition = '';   // на всякий случай
+      }
     }
 
     function openCatSheet(){
@@ -584,8 +598,20 @@
     }
     function closeCatSheet(){
       document.body.classList.remove('sheet-open');
-      $('#catOverlay').classList.remove('show');
-      $('#catSheet').classList.remove('open');
+
+      const overlay = document.getElementById('catOverlay');
+      const sheet   = document.getElementById('catSheet');
+
+      if (overlay){
+        overlay.classList.remove('show');
+        overlay.style.opacity    = '';
+        overlay.style.transition = '';
+      }
+      if (sheet){
+        sheet.classList.remove('open');
+        sheet.style.transform  = '';
+        sheet.style.transition = '';
+      }
     }
 
     /* Global click handlers (add/inc/dec/info/overlay/clear) */

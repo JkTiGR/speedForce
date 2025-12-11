@@ -743,17 +743,21 @@ body.island .app{
   }
 }
 
-/* ===== HERO ===== */
+/* ===== HERO (promo) ===== */
 
 .hero{
   text-align:center;
   margin:10px 0 20px;
-  transition:opacity .28s ease, transform .28s ease;
+  transition:
+    opacity .40s ease,
+    transform .40s cubic-bezier(.16,.84,.44,1),
+    filter .40s ease;
 }
 
 body.island .hero{
   opacity:0;
-  transform:translateY(-30px);
+  transform:translateY(-40px) scale(.94);
+  filter:blur(3px);
   pointer-events:none;
 }
 
@@ -808,14 +812,13 @@ body.island .hero{
   border-radius:14px;
 }
 
-/* ===== iOS-STYLE DOCK (как на твоём мокапе) ===== */
+/* ===== iOS-STYLE DOCK ===== */
 
-/* ===== iOS-подобный стеклянный DOCK-таббар ===== */
 .dock{
   position: fixed;
   left: 50%;
   bottom: calc(env(safe-area-inset-bottom) + 10px);
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
   width: min(430px, calc(100% - 24px));
   padding: 6px 10px;
   border-radius: 999px;
@@ -834,6 +837,17 @@ body.island .hero{
   -webkit-backdrop-filter: blur(18px) saturate(180%);
 
   z-index: 50;
+
+  transition:
+    opacity 0.26s ease,
+    transform 0.26s cubic-bezier(.18,.9,.32,1);
+}
+
+/* док прячется, когда открыт bottom-sheet */
+body.sheet-open .dock{
+  opacity: 0;
+  transform: translate(-50%, 22px) scale(.96);
+  pointer-events: none;
 }
 
 /* Кнопка дока: иконка сверху, подпись снизу */
@@ -861,11 +875,11 @@ body.island .hero{
   -webkit-tap-highlight-color: transparent;
 
   transition:
-    transform 0.18s ease,
-    box-shadow 0.18s ease,
-    background 0.18s ease,
+    transform 0.22s cubic-bezier(.16,.84,.44,1),
+    box-shadow 0.22s ease-out,
     color 0.18s ease,
-    opacity 0.18s ease;
+    opacity 0.18s ease,
+    filter 0.22s ease;
 }
 
 .dock-btn img{
@@ -873,10 +887,11 @@ body.island .hero{
   height: 26px;
   display: block;
   pointer-events: none;
-  filter: drop-shadow(0 0 6px rgba(0,0,0,0.6));
+  filter: drop-shadow(0 0 4px rgba(0,0,0,0.65));
+  transition: filter 0.22s ease-out, transform 0.22s cubic-bezier(.16,.84,.44,1);
 }
 
-/* Подпись снизу — берём из data-label */
+/* подпись снизу — из data-label */
 .dock-btn::after{
   content: attr(data-label);
   display: block;
@@ -889,42 +904,46 @@ body.island .hero{
   white-space: nowrap;
 }
 
-/* Состояние "неактивная" — слегка прозрачная */
+/* неактивные чуть приглушены */
 .dock-btn:not(.active){
-  opacity: 0.85;
+  opacity: 0.86;
 }
 
-/* Активная кнопка — подъём и неоновое свечение */
+/* анимация пружинки */
+@keyframes dockSpring{
+  0%   { transform: translateY(2px) scale(.90); }
+  55%  { transform: translateY(-6px) scale(1.16); }
+  100% { transform: translateY(-4px) scale(1.10); }
+}
+
+/* активная — без круга, только сияние */
 .dock-btn.active{
-  transform: translateY(-4px) scale(1.12);
   opacity: 1;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(79,211,255,0.40), transparent 65%),
-    radial-gradient(circle at 50% 100%, rgba(143,0,255,0.35), transparent 70%);
-  box-shadow:
-    0 0 22px rgba(79,211,255,0.9),
-    0 0 36px rgba(143,0,255,0.85),
-    0 8px 18px rgba(0,0,0,0.9);
+  background: transparent !important;
   color: #ffffff;
+  box-shadow:
+    0 0 14px rgba(79,211,255,0.55),
+    0 0 26px rgba(143,0,255,0.55);
+  animation: dockSpring 0.30s cubic-bezier(.22,1.2,.32,1) forwards;
 }
 
 .dock-btn.active img{
   filter:
-    drop-shadow(0 0 10px rgba(79,211,255,0.9))
-    drop-shadow(0 0 18px rgba(143,0,255,0.9));
+    drop-shadow(0 0 10px rgba(79,211,255,0.75))
+    drop-shadow(0 0 18px rgba(143,0,255,0.80));
+  transform: translateY(-1px) scale(1.02);
 }
 
-/* Ховер для десктопа (на телефоне просто не мешает) */
+/* Ховер на десктопе */
 @media (hover:hover){
   .dock-btn:hover:not(.active){
     opacity: 1;
-    background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 70%);
+    box-shadow: 0 0 12px rgba(255,255,255,0.12);
   }
 }
 
-/* ===== Бейджи: корзина и флаг языка ===== */
+/* ===== Бейджи: корзина и язык ===== */
 
-/* Базовый стиль кружка (корзина + флаг) */
 .cart-badge{
   position: absolute;
   top: 4px;
@@ -935,7 +954,7 @@ body.island .hero{
   padding: 0 4px;
 
   border-radius: 999px;
-  display: none;               /* по умолчанию скрыто — для корзины */
+  display: none;
   align-items: center;
   justify-content: center;
 
@@ -951,19 +970,18 @@ body.island .hero{
     0 0 12px rgba(255,23,68,0.9);
 }
 
-/* Появление бейджа на корзине, когда есть товары */
+/* корзина с товарами */
 body.cart-has-items #dockCart .cart-badge{
   display: flex;
   animation: cartPulse 0.9s ease-out;
 }
 
-/* Флаг языка — всегда виден, тот же кружок */
+/* флаг языка — всегда виден */
 #dockLangFlag{
   display: flex;
-  font-size: 0.78rem;          /* чуть крупнее, чтобы флаг читался */
+  font-size: 0.78rem;
 }
 
-/* Пульсация при первом появлении бейджа корзины */
 @keyframes cartPulse{
   0%   { transform: scale(0);   opacity: 0; }
   40%  { transform: scale(1.25);opacity: 1; }
@@ -971,7 +989,8 @@ body.cart-has-items #dockCart .cart-badge{
   100% { transform: scale(1);   }
 }
 
-/* ===== Мини-попап выбора языка (вылетает над доком) ===== */
+/* ===== Мини-попап выбора языка ===== */
+
 .mini-popup{
   position: fixed;
   left: 50%;
@@ -1008,7 +1027,6 @@ body.cart-has-items #dockCart .cart-badge{
   transform: translateX(-50%) translateY(0);
 }
 
-/* Кнопки языков внутри попапа */
 .mini-popup-lang button{
   border: 1px solid rgba(255,255,255,0.18);
   border-radius: 999px;
